@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      body{
+        font-family:  fangsong;
+      }
+      header {
+        background: linear-gradient(to right, #2C3E50, #3498DB);
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+      }
+      h1 {
+        font-size: 36px;
+        margin-top: 0;
+      }
+      .pager {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .pager li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+      input[type="text"] {
+        font-size: 18px;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th, td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #ddd;
+      }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 24px;
+        }
+        input[type="text"] {
+          font-size: 16px;
+          padding: 8px 12px;
+        }
+        .add {
+          margin-left: 10px; /* Adjust as needed */
+        }
+      }
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 20px;
+        }
+        input[type="text"] {
+          font-size: 14px;
+          padding: 6px 10px;
+        }
+        .add {
+          margin-left: 10px; /* Adjust as needed */
+        }
+      }
+    </style>
+</head>  
+<body>
+  <header>
+    <h1>List Of Issue Books</h1>
+  </header>
+  <ul class="pager">
+    <li class="previous"><a href="/front/">Home</a></li>
+    <li class="next"><a href="/issue/">Issue Book</a></li>
+  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <input type="text" name="" id="myinput" class="form-control" placeholder="Search By Member_id..." onkeyup="searchfun()">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table id="mytable" class="table">
+            <tr class="alert alert-info">
+              <th>Member_id</th>
+              <th>Book_id</th>
+              <th>Issue_date</th>
+              <th>Return_date</th>
+              <th>Status</th>
+              <th>Update</th>
+              <!-- <th>Delete</th> -->
+            </tr>
+            {% for i in data %}
+            <tr>
+              <td class="alert alert-info">{{ i.member_id_id }}</td>
+              <td class="alert alert-info">{{ i.book_id_id }}</td>
+              <td class="alert alert-info">{{ i.issue_date }}</td>
+              <td class="alert alert-info">{{ i.return_date }}</td>
+              <td class="alert alert-info">{{ i.status }}</td>
+              <td><a type="button" class="btn btn-primary alert alert-info" href="/update/{{ i.id }}">Update</a></td>
+              <!-- <td><a type="button" class="btn btn-primary" href="/filterstudent/{{ i.id }}">Delete</a></td> -->
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function searchfun() {
+      let filter = document.getElementById('myinput').value.toUpperCase();
+      let mytable = document.getElementById('mytable');
+      let tr = mytable.getElementsByTagName('tr');
+      for (var i = 0; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName('td')[0];
+        if (td) {
+          let textValue = td.textContent || td.innerHTML;
+          if (textValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

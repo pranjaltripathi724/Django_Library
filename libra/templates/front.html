@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    
+    <style>
+        /* Reset some default styles */        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: fangsong;
+        }
+
+        /* .header-nav {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            background: linear-gradient(to right, #2C3E50, #3498DB);
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-family: fangsong; 
+            font-size: 36px; 
+        } */
+
+        /* nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            font-family: fangsong;
+            font-size: 120%;
+            color: #fff;
+            text-decoration: none;
+        } */
+
+        .hero {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f4f4f4;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            /* margin-bottom: 20px; */
+        }
+
+        .hero p {
+            font-size: 18px;
+            /* margin-bottom: 30px; */
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #2C3E50, #3498DB);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #2C3E50, #3498DB);
+        }
+
+        footer {
+            background: linear-gradient(to right, #2C3E50, #3498DB);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer h3 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            font-size: 1.2em;
+        }
+
+        img {
+            background-size: cover;
+        }
+
+        .container {
+            /* position: relative; */
+            width: 100%;
+        }
+
+        .image {
+            border-radius: 20px; 
+            overflow: hidden;
+            width: 95%;
+            height: 90%; 
+        }
+
+        /* .text {
+            position: absolute;
+            top: 55%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white;
+            font-size: 24px;
+            text-align: center; 
+            padding: 10px;
+        } */
+
+        /* .text1 {
+            position: absolute;
+            top: 62%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white;
+            font-size: 24px;
+            text-align: center; 
+            padding: 10px;
+        } */
+
+        /* .text2 {
+            position: absolute;
+            top: 72%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white;
+            font-size: 24px;
+            text-align: center; 
+            padding: 10px;
+        } */
+        span{
+            color: #3498DB;
+        }
+
+        /* Media Queries for responsiveness */
+        @media only screen and (max-width: 768px) {
+            /* header h1 {
+                font-size: 28px;
+            }
+
+            nav ul li a {
+                font-size: 100%;
+            } */
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .text,
+            .text1,
+            .text2 {
+                font-size: 18px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            /* header h1 {
+                font-size: 24px;
+            }
+
+            nav ul li a {
+                font-size: 90%;
+            } */
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .text,
+            .text1,
+            .text2 {
+                font-size: 16px;
+            }
+        }
+        nav{
+            background: linear-gradient(to right, #2C3E50, #3498DB);
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+    text-decoration: none;
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active,a:hover{
+    background: linear-gradient(to right, #2C3E50, #3498DB);
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+@media (max-width: 952px){
+  label.logo{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    background: linear-gradient(to right, #2C3E50, #3498DB);
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+.text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <form action="/front/">
+        <!-- <div class="header-nav"> -->
+            <!-- <header>
+                <h1>Welcome to Our <span>Library</span></h1>
+            </header> -->
+            <nav>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                  <i class="fas fa-bars"></i>
+                </label>
+                <label class="logo">E <span>Library</span></label>
+                <ul>
+                  <li><a class="active" href="#">Home</a></li>
+                  <li><a href="/showissue/">Books Status</a></li>
+                  <li><a href="/showstd/">Members</a></li>
+                  <li><a href="/about/">About</a></li>
+                  <a type="button" class="btn" href="/logout/">logout</a>
+                </ul>
+              </nav>
+        <!-- </div> -->
+        <section class="hero">
+            <div class="container">
+                <div class="div"><h2 class="text">Explore Our Collection</h2>
+                    <p class="text1">Find your next favorite book among thousands of titles.</p>
+                    <a href="/showbook/" class="btn text2">Get Started</a>
+                    </div>
+                <img class="image" src="{% static '1777.jpeg' %}" alt="">
+               
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2024 Library Management System. All rights reserved.</p>
+        </footer>
+    </form>
+    
+</body>
+</html>

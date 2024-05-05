@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    {% load static %}
+    <style>
+        body {
+            font-family:  fangsong;
+            background-image: url('{% static "1222.png" %}'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+        }
+       
+        .container {
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.13); 
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-top: 20px;
+        }
+        .form-group input[type="submit"] {
+            color: #080710;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    padding: 10px 160px;
+    border-radius: 5px;
+    cursor: pointer
+        }
+        
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 5px;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none;
+            border-color:  #0c4176;
+        }
+        .form-group .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+            }
+
+            .form-group input[type="submit"] {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="container" style="margin-top: 120px;">
+            <h2>Sign Up</h2>
+            <h4>Please Fill This Form To Signup</h4>
+            <hr>
+            <form action="" method="post">
+                {% csrf_token %}
+    
+                {% for i in form %}
+                <div class="form-group">
+                    <label>{{i.label_tag}}</label><br>
+                    {{i}}<br>
+                    <span class="error-message">{{i.errors|striptags}}</span>
+                </div>
+                {% endfor %}
+                <div class="form-group">
+                    <input class="hrg" type="submit" value="Sign Up">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {% load static %}
+    <style>
+        body {
+            font-family:  fangsong;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #2C3E50, #3498DB);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .about-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .about-section h2 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <div class="about-section">
+            <ul class="pager">
+                <li class="previous"><a href="/front/">Home</a></li>
+            </ul>
+            <img src="{% static 'pt.webp'%}" alt="Library Logo">
+            <h2>Our Library</h2>
+            <p>Welcome to our College library! We are dedicated to providing access to knowledge and promoting literacy in our community.</p>
+            <p>Located at:</p>
+            <address>
+                Facing International Airport<br>
+                Gandhi Nagar Bhopal<br>
+                Phone: (+91) 4555667890<br>
+                Email: asct@gmail.com
+            </address>
+            <p>Hours of Operation:</p>
+            <ul>
+                <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
+                <li>Saturday: 10:00 AM - 4:00 PM</li>
+                <li>Sunday: Closed</li>
+            </ul>
+        </div>
+    </div>
+   
+</body>
+</html>

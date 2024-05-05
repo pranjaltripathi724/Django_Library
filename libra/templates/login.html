@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>login</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    {% load static %}
+    
+    <style media="screen">
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #1845ad, #23a2f6);
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .full {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 5%;
+            font-family: cursive;
+            position: relative;
+            color: white;
+        }
+
+        form {
+            width: 90%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.13);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 50px 35px;
+            margin-top: 5%;
+        }
+
+        form h3 {
+            font-size: 2rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        input {
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .button {
+            margin-top: 20px;
+            height: 50px;
+            width: 100%;
+            background-color: #ffffff;
+            color: #080710;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .social {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social div {
+            background: red;
+            width: 150px;
+            border-radius: 3px;
+            padding: 5px 10px;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.27);
+            color: #eaf0fb;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .social div:hover {
+            background-color: rgba(255, 255, 255, 0.47);
+        }
+
+        .social i {
+            margin-right: 4px;
+        }
+        
+
+        /* .logo {
+            max-width: 100%;
+            margin-bottom: 25%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        } */
+
+        @media screen and (max-width: 600px) {
+           
+            form {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            label,
+            input {
+                font-size: 0.9rem;
+            }
+
+            .button {
+                font-size: 1rem;
+            }
+
+            .social div {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="full" src="{% static '1222.png' %}" alt="">
+        <h1>Library Management System</h1>
+        <!-- <img class="logo" src="{% static 'pt.webp'%}" alt="Library Logo"> -->
+        <form action="" method="post">
+            {% csrf_token %}
+            <h3>Login Here</h3>
+
+            <label for="username">Username</label>
+            <input type="text" placeholder="username" id="username" name="username">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password">
+
+            <input class="button" type="submit" value="Login">
+            
+            
+        </form>
+    </div>
+</body>
+</html>
